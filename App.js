@@ -2,11 +2,17 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import TopAppBar from './Components/TopAppBar';
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+        <TopAppBar/>
+        <View style={styles.container}>
+
+          <Text>Animal Crossing!</Text>
+          <StatusBar style="auto" />
+        </View>
     </View>
   );
 }
