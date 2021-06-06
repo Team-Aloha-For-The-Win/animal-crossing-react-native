@@ -1,27 +1,67 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import theme from './CustomProperties/Themes';
 
-import TopAppBar from './Components/TopAppBar';
+// import { NativeRouter, BackButton, Route, Switch } from "react-router-native";
+
+
+// import components
+import TopBar from './Components/TopBar';
+import BottomBar from './Components/BottomBar';
+
+// import views
+import Splash from './views/Splash';
+import Home from './views/Home';
+import Search from './views/Search';
+
+
+
 
 export default function App() {
   return (
     <View>
-        <TopAppBar/>
-        <View style={styles.container}>
+         <TopBar style={styles.header}/>
+                  
+                  <ScrollView contentContainerStyle={styles.scrollView} contentContainerStyle={{ flexGrow: 1 }}>
 
-          <Text>Animal Crossing!</Text>
-          <StatusBar style="auto" />
-        </View>
+                        {/* <Switch>
+
+                          <Route exact path="/" component={Splash} />
+                          <Route path="/home" component={Home} />
+                
+
+                        </Switch> */}
+
+                        <Home/>
+
+                  </ScrollView>
+
+              <BottomBar style={styles.footer}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+      flexDirection: 'column',
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor: '#0d4077',
   },
+  header: {
+    flex: .15,
+    flexGrow: 1,
+    elevation: 0,
+  },
+  scrollView: {
+    flexDirection: 'column',
+    flex: .7,
+    alignSelf: 'stretch',
+    backgroundColor: 'pink',
+  },
+  footer: {
+    flex: .15,
+  }
 });
+
